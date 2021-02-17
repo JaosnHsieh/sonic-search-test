@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  sonic:
+    image: valeriansaliou/sonic:v1.3.0
+    volumes:
+      - ./sonic.cfg:/etc/sonic.cfg
+      - ./store/:/var/lib/sonic/store/
+    ports:
+      - '1491:1491'
