@@ -9,6 +9,7 @@ const contents = [
   ],
   ['messages', 'default', '2', `id 2 show me the money..`],
   ['messages', 'default', '3', `id 3 給我 看錢.. chinese mix with english`],
+  ['messages', 'default', '4', `這全部都是中文 你可以找到我嗎 試試看 哈`],
 ];
 var sonicChannelIngest = new SonicChannelIngest({
   host: 'localhost',
@@ -19,7 +20,7 @@ var sonicChannelIngest = new SonicChannelIngest({
     console.info('Sonic Channel succeeded to connect to host.');
     Promise.all(
       contents.map(([collectionId, bucketId, objectId, text]) => {
-        return sonicChannelIngest.push(collectionId, bucketId, objectId, text);
+        return sonicChannelIngest.push(collectionId, bucketId, objectId, text.toLowerCase());
       }),
     ).then(() => {
       console.log('pushed contents', contents);

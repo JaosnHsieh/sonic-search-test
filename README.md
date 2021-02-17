@@ -4,6 +4,22 @@ https://github.com/valeriansaliou/sonic
 
 looking for a effective text search service.
 
+## run
+
+`$ docker-compose up -d`
+
+`$ cd ./client`
+
+`$ yarn` or `$ npm install`
+
+`$ node ./push.js`
+
+`$ node ./query.js`
+
 ### result
 
-`Sonic` is cool but it doesn't support sentence level search. if we need search over 2 words, the result is not what i expected.
+`Sonic` is cool and effective but it doesn't work well with chinese characters.
+
+related issue:
+
+https://github.com/valeriansaliou/sonic/issues/203

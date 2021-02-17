@@ -1,6 +1,6 @@
 const SonicChannelSearch = require('sonic-channel').Search;
 
-const words = ['lorem', 'lor', 'show', '錢', '看錢'];
+const words = ['lorem', 'dolor sit','lore', 'show','english', '錢', '看錢','我','中文','哈','這全部都是中文 你可以找到我嗎 試試看 哈'];
 
 var sonicChannelSearch = new SonicChannelSearch({
   host: 'localhost',
@@ -12,7 +12,7 @@ var sonicChannelSearch = new SonicChannelSearch({
 
     words.forEach((word) => {
       sonicChannelSearch
-        .suggest('messages', 'default', word)
+        .suggest('messages', 'default', word.replace(/\s/ig,''))
         .then((results) => {
           console.log('suggest results', word, results);
         }).catch(err=>{
@@ -20,7 +20,7 @@ var sonicChannelSearch = new SonicChannelSearch({
         console.log('suggest error',word,err)
         });
 
-      sonicChannelSearch.query('messages', 'default', word).then((results) => {
+      sonicChannelSearch.query('messages', 'default', word,{lang:'none'}).then((results) => {
         console.log('query results', word, results);
       }).catch(err=>{
         console.log('query error',word,err)
